@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { CgVercel } from 'react-icons/cg';
-import my from '../img/WIN_20250607_20_48_28_Pro.jpg';
+import my from '../img/photo_2025-06-10_16-34-12.jpg';
 import ru from '../img/flag.svg';
 import en from '../img/en.svg';
 
@@ -75,6 +75,13 @@ const AuthorPage: React.FC = () => {
       url: 'https://shop-texnika.vercel.app/',
       tech: [t('tech.react'), t('tech.nextjs'), t('tech.responsive'), t('tech.vercel')],
       gradient: 'from-green-500 to-teal-500',
+    },
+    {
+      title: t('projects.CristianoRonaldo.title'),
+      description: t('projects.CristianoRonaldo.description'),
+      url: 'https://cr7-five.vercel.app/',
+      tech: [t('tech.react'), t('tech.nextjs'), t('tech.responsive')],
+      gradient: 'from-red-500 to-yellow-500',
     },
   ];
 
@@ -383,6 +390,7 @@ const AuthorPage: React.FC = () => {
                       </span>
                     ))}
                   </div>
+                  
                 </div>
               </div>
             ))}
