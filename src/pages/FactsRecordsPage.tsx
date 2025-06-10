@@ -6,7 +6,7 @@ const FactsRecordsPage = () => {
     {
       icon: Target,
       title: 'Голы в карьере',
-      value: '850+',
+      value: '900+',
       description: 'Официальные матчи за клуб и сборную',
       color: 'text-red-600'
     },
@@ -223,7 +223,7 @@ const FactsRecordsPage = () => {
                   <span className="text-yellow-400">2021 (36 лет)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>850+ голов:</span>
+                  <span>900+ голов:</span>
                   <span className="text-yellow-400">2024 (39 лет)</span>
                 </div>
               </div>

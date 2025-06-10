@@ -9,7 +9,7 @@ const HomePage = () => {
       title: "5x Лига чемпионов",
       description: "Рекордсмен турнира",
     },
-    { icon: Target, title: "800+ голов", description: "В официальных матчах" },
+    { icon: Target, title: "900+ голов", description: "В официальных матчах" },
     { icon: Calendar, title: "20+ лет", description: "На высшем уровне" },
   ];
 
