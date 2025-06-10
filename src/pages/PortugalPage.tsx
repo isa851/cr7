@@ -61,7 +61,8 @@ const PortugalPage = () => {
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center">
             <div className="w-24 h-24 mx-auto mb-6 bg-white rounded-full flex items-center justify-center">
-              <Flag className="w-12 h-12 text-red-600" />
+              <img className="w-20 h-20 rounded-full  text-red-600" src="https://cdn.vectorstock.com/i/500p/42/57/portugal-flag-vector-39124257.jpg" alt="" />
+              
             </div>
             <h1 className="text-5xl md:text-6xl font-bold mb-6">
               Сборная <span className="text-yellow-400">Португалии</span>
