@@ -25,7 +25,6 @@ const HomePage = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
         </div>
-
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
             CRISTIANO
@@ -81,7 +80,7 @@ const HomePage = () => {
               <img
                 src="https://pbs.twimg.com/media/GXYK0jEW4AAE1E2.jpg:large"
                 alt="Cristiano Ronaldo Portrait"
-                className="rounded-2xl shadow-2xl"
+                className="rounded-2xl shadow-2xl w-full h-auto"
               />
               <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-black p-4 rounded-xl font-bold text-lg shadow-lg">
                 GOAT 🐐
@@ -125,33 +124,28 @@ const HomePage = () => {
           <h2 className="text-4xl font-bold text-center mb-16">
             Путь к <span className="text-yellow-400">величию</span>
           </h2>
-          <div className="flex justify-center items-center gap-8">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8">
             <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BD%D1%87%D0%B5%D1%81%D1%82%D0%B5%D1%80_%D0%AE%D0%BD%D0%B0%D0%B9%D1%82%D0%B5%D0%B4">
               <div className="text-center group cursor-pointer">
                 <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl font-bold">
-                    <img
-                      className="w-100 h-20"
-                      src="https://upload.wikimedia.org/wikipedia/ru/thumb/7/7a/Manchester_United_FC_crest.svg/2021px-Manchester_United_FC_crest.svg.png"
-                      alt=""
-                    />
-                  </span>
+                  <img
+                    className="w-full h-full object-contain"
+                    src="https://upload.wikimedia.org/wikipedia/ru/thumb/7/7a/Manchester_United_FC_crest.svg/2021px-Manchester_United_FC_crest.svg.png"
+                    alt="Manchester United Logo"
+                  />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Манчестер Юнайтед</h3>
                 <p className="text-gray-300">2003-2009 • Первые трофеи</p>
               </div>
             </a>
-
             <a href="https://www.realmadrid.com/en-US">
               <div className="text-center group cursor-pointer">
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl font-bold text-purple-800">
-                    <img
-                      className="w-100 h-20"
-                      src="https://upload.wikimedia.org/wikipedia/ru/thumb/8/8a/FC_Real_Madrid_Logo.svg/1200px-FC_Real_Madrid_Logo.svg.png"
-                      alt=""
-                    />
-                  </span>
+                  <img
+                    className="w-full h-full object-contain"
+                    src="https://upload.wikimedia.org/wikipedia/ru/thumb/8/8a/FC_Real_Madrid_Logo.svg/1200px-FC_Real_Madrid_Logo.svg.png"
+                    alt="Real Madrid Logo"
+                  />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Реал Мадрид</h3>
                 <p className="text-gray-300">2009-2018 • Эра рекордов</p>
@@ -160,29 +154,24 @@ const HomePage = () => {
             <a href="https://ru.wikipedia.org/wiki/%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81">
               <div className="text-center group cursor-pointer">
                 <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl font-bold text-black">
-                    <img
-                      className=" rounded-full w-100 h-20"
-                      src="https://imageio.forbes.com/i-forbesimg/media/lists/teams/juventus_416x416.jpg?format=jpg"
-                      alt=""
-                    />
-                  </span>
+                  <img
+                    className="w-full h-full object-contain rounded-full"
+                    src="https://imageio.forbes.com/i-forbesimg/media/lists/teams/juventus_416x416.jpg?format=jpg"
+                    alt="Juventus Logo"
+                  />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Ювентус</h3>
                 <p className="text-gray-300">2018-2021 • Новейшая слава</p>
               </div>
             </a>
-
             <a href="https://ru.wikipedia.org/wiki/%D0%90%D0%BD-%D0%9D%D0%B0%D1%81%D1%80_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%AD%D1%80-%D0%A0%D0%B8%D1%8F%D0%B4)">
               <div className="text-center group cursor-pointer">
                 <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl font-bold text-black">
-                    <img
-                      className="w-100 h-20"
-                      src="https://upload.wikimedia.org/wikipedia/ru/6/6b/Al_Nassr_FC_%28%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%29.png"
-                      alt=""
-                    />
-                  </span>
+                  <img
+                    className="w-full h-full object-contain"
+                    src="https://upload.wikimedia.org/wikipedia/ru/6/6b/Al_Nassr_FC_%28%D0%BB%D0%BE%D0%B3%D0%BE%D1%82%D0%B8%D0%BF%29.png"
+                    alt="Al-Nassr Logo"
+                  />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Аль-Наср</h3>
                 <p className="text-gray-300">2023-2025 • Новая глава</p>
