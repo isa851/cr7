@@ -37,12 +37,15 @@ const Navigation: React.FC<NavigationProps> = ({
 
   const navigationItems = [
     { id: "home", label: "", icon: Home },
-    { id: "early-life", label: " ", icon: Calendar },
-    { id: "manchester", label: " ", icon: Trophy },
-    { id: "real-madrid", label: " ", icon: Trophy },
+
+
+    { id: "early-life", label: "", icon: Calendar },
+    
+    { id: "manchester", label: "", icon: Trophy },
+    { id: "real-madrid", label: "", icon: Trophy },
     { id: "juventus", label: "", icon: Trophy },
     { id: "alnassr", label: "", icon: Trophy },
-    { id: "portugal", label: " ", icon: Users },
+    { id: "portugal", label: "", icon: Users },
     { id: "personal-life", label: " ", icon: Heart },
     { id: "gallery", label: "", icon: Image },
     { id: "facts-records", label: "  ", icon: Award },
@@ -73,7 +76,7 @@ const Navigation: React.FC<NavigationProps> = ({
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex space-x-1 ml-10">
+          <div className="hidden lg:flex space-ms ml-10">
             {navigationItems.map((item) => {
               const Icon = item.icon;
               const isActive = currentPage === item.id;
