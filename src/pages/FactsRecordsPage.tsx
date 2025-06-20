@@ -72,7 +72,7 @@ const FactsRecordsPage = () => {
               Невероятные достижения легенды футбола
             </p>
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto">
-              <div className="text-4xl font-bold text-yellow-200 mb-2">850+</div>
+              <div className="text-4xl font-bold text-yellow-200 mb-2">900+</div>
               <div className="text-lg">голов в официальных матчах</div>
             </div>
           </div>
@@ -224,7 +224,7 @@ const FactsRecordsPage = () => {
                 </div>
                 <div className="flex justify-between">
                   <span>900+ голов:</span>
-                  <span className="text-yellow-400">2024 (39 лет)</span>
+                  <span className="text-yellow-400">2025 (40 лет)</span>
                 </div>
               </div>
             </div>
@@ -281,7 +281,7 @@ const FactsRecordsPage = () => {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
               <h3 className="text-xl font-bold mb-3 text-yellow-400">Физическая форма</h3>
               <p className="text-sm opacity-90">
-                В 39 лет имеет физические показатели 20-летнего спортсмена. 
+                В 40 лет имеет физические показатели 20-летнего спортсмена. 
                 Процент жира в организме — всего 7%.
               </p>
             </div>

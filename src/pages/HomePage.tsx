@@ -68,7 +68,7 @@ const HomePage = () => {
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-yellow-600">39</div>
+                  <div className="text-3xl font-bold text-yellow-600">40</div>
                   <div className="text-gray-600">лет</div>
                 </div>
                 <div className="text-center">
@@ -125,7 +125,7 @@ const HomePage = () => {
           <h2 className="text-4xl font-bold text-center mb-16">
             Путь к <span className="text-yellow-400">величию</span>
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex justify-center items-center gap-8">
             <a href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D0%BD%D1%87%D0%B5%D1%81%D1%82%D0%B5%D1%80_%D0%AE%D0%BD%D0%B0%D0%B9%D1%82%D0%B5%D0%B4">
               <div className="text-center group cursor-pointer">
                 <div className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -143,7 +143,6 @@ const HomePage = () => {
             </a>
 
             <a href="https://www.realmadrid.com/en-US">
-              {" "}
               <div className="text-center group cursor-pointer">
                 <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl font-bold text-purple-800">
@@ -158,9 +157,23 @@ const HomePage = () => {
                 <p className="text-gray-300">2009-2018 • Эра рекордов</p>
               </div>
             </a>
+            <a href="https://ru.wikipedia.org/wiki/%D0%AE%D0%B2%D0%B5%D0%BD%D1%82%D1%83%D1%81">
+              <div className="text-center group cursor-pointer">
+                <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl font-bold text-black">
+                    <img
+                      className=" rounded-full w-100 h-20"
+                      src="https://imageio.forbes.com/i-forbesimg/media/lists/teams/juventus_416x416.jpg?format=jpg"
+                      alt=""
+                    />
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Ювентус</h3>
+                <p className="text-gray-300">2018-2021 • Новейшая слава</p>
+              </div>
+            </a>
 
             <a href="https://ru.wikipedia.org/wiki/%D0%90%D0%BD-%D0%9D%D0%B0%D1%81%D1%80_(%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D0%BA%D0%BB%D1%83%D0%B1,_%D0%AD%D1%80-%D0%A0%D0%B8%D1%8F%D0%B4)">
-              {" "}
               <div className="text-center group cursor-pointer">
                 <div className="w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-2xl font-bold text-black">
@@ -172,7 +185,7 @@ const HomePage = () => {
                   </span>
                 </div>
                 <h3 className="text-xl font-bold mb-2">Аль-Наср</h3>
-                <p className="text-gray-300">2023-... • Новая глава</p>
+                <p className="text-gray-300">2023-2025 • Новая глава</p>
               </div>
             </a>
           </div>

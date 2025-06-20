@@ -139,7 +139,7 @@ const GalleryPage = () => {
               {currentSection === 'young' ? (
                 <span>Молодой Роналду <span className="text-yellow-400">(2003-2012)</span></span>
               ) : (
-                <span>Современный Роналду <span className="text-yellow-400">(2013-2024)</span></span>
+                <span>Современный Роналду <span className="text-yellow-400">(2013-2025)</span></span>
               )}
             </h2>
             <p className="text-lg text-gray-300 max-w-3xl mx-auto">
@@ -220,11 +220,11 @@ const GalleryPage = () => {
             </div>
 
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-yellow-400 mb-6 text-center">2013-2024</h3>
+              <h3 className="text-2xl font-bold text-yellow-400 mb-6 text-center">2013-2025</h3>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-white">Возраст:</span>
-                  <span className="text-yellow-400 font-semibold">28-39 лет</span>
+                  <span className="text-yellow-400 font-semibold">28-40 лет</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-white">Стиль игры:</span>

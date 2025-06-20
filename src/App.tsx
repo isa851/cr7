@@ -4,7 +4,8 @@ import HomePage from "./pages/HomePage";
 import EarlyLifePage from "./pages/EarlyLifePage";
 import ManchesterPage from "./pages/ManchesterPage";
 import RealMadridPage from "./pages/RealMadridPage";
-import JuventusAlNassrPage from "./pages/JuventusAlNassrPage";
+import AlNassrPage from "./pages/AlNassrPage";
+import JuventusPage from "./pages/JuventusPage";
 import PortugalPage from "./pages/PortugalPage";
 import PersonalLifePage from "./pages/PersonalLifePage";
 import GalleryPage from "./pages/GalleryPage";
@@ -16,7 +17,8 @@ type PageType =
   | "early-life"
   | "manchester"
   | "real-madrid"
-  | "juventus-alnassr"
+  | "alnassr"
+  | "juventus"
   | "portugal"
   | "personal-life"
   | "gallery"
@@ -59,8 +61,10 @@ function App() {
         return <ManchesterPage />;
       case "real-madrid":
         return <RealMadridPage />;
-      case "juventus-alnassr":
-        return <JuventusAlNassrPage />;
+      case "alnassr":
+        return <AlNassrPage />;
+      case "juventus":
+        return <JuventusPage />;
       case "portugal":
         return <PortugalPage />;
       case "personal-life":
