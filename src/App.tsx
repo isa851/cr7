@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navigation from "./components/Navigation";
 import HomePage from "./pages/HomePage";
+import DonatePage from "./pages/DonatePage";
 import EarlyLifePage from "./pages/EarlyLifePage";
 import ManchesterPage from "./pages/ManchesterPage";
 import RealMadridPage from "./pages/RealMadridPage";
@@ -14,6 +15,7 @@ import AuthorPage from "./pages/AuthorPage";
 
 type PageType =
   | "home"
+  | "donate"
   | "early-life"
   | "manchester"
   | "real-madrid"
@@ -55,6 +57,8 @@ function App() {
     switch (currentPage) {
       case "home":
         return <HomePage />;
+        case "donate":
+          return <DonatePage />;
       case "early-life":
         return <EarlyLifePage />;
       case "manchester":

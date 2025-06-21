@@ -1,6 +1,7 @@
 import React from "react";
 import { Trophy, Target, Award, Calendar } from "lucide-react";
 
+
 const HomePage = () => {
   const achievements = [
     { icon: Trophy, title: "5x Золотой мяч", description: "Лучший игрок мира" },

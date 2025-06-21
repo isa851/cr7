@@ -48,9 +48,9 @@ const AuthorPage: React.FC = () => {
   }, []);
 
   const skills = [
-    { name: t('skills.react'), level: 80, icon: Globe, description: t('skills.reactDesc') },
-    { name: t('skills.python'), level: 60, icon: Database, description: t('skills.pythonDesc') },
-    { name: t('skills.js'), level: 90, icon: Code, description: t('skills.jsDesc') },
+    { name: t('skills.react'), level: 60, icon: Globe, description: t('skills.reactDesc') },
+    { name: t('skills.python'), level: 40, icon: Database, description: t('skills.pythonDesc') },
+    { name: t('skills.js'), level: 60, icon: Code, description: t('skills.jsDesc') },
     { name: t('skills.fullStack'), level: 70, icon: Smartphone, description: t('skills.fullStackDesc') },
   ];
 

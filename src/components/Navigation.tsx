@@ -10,11 +10,14 @@ import {
   Image,
   Award,
   User,
+  HandCoins,
 } from "lucide-react";
+
 import { Link } from "react-router-dom";
 
 type PageType =
   | "home"
+  | "donate"
   | "early-life"
   | "manchester"
   | "real-madrid"
@@ -37,20 +40,19 @@ const Navigation: React.FC<NavigationProps> = ({
 
   const navigationItems = [
     { id: "home", label: "", icon: Home },
-
-
     { id: "early-life", label: "", icon: Calendar },
-    
     { id: "manchester", label: "", icon: Trophy },
     { id: "real-madrid", label: "", icon: Trophy },
     { id: "juventus", label: "", icon: Trophy },
     { id: "alnassr", label: "", icon: Trophy },
     { id: "portugal", label: "", icon: Users },
-    { id: "personal-life", label: " ", icon: Heart },
+    { id: "personal-life", label: "", icon: Heart },
     { id: "gallery", label: "", icon: Image },
-    { id: "facts-records", label: "  ", icon: Award },
-    { id: "author-of-the-site", label: "  ", icon: User },
+    { id: "facts-records", label: "", icon: Award },
+    { id: "author-of-the-site", label: "", icon: User },
+    { id: "donate", label: "", icon: HandCoins },
   ];
+  
 
   return (
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">

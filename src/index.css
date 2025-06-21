@@ -23,7 +23,6 @@
       animation: slideInUp 1s ease-out;
     }
   
-    /* NEW AGGRESSIVE SCROLL ANIMATIONS */
     .animate-explosive-entry {
       animation: explosiveEntry 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
