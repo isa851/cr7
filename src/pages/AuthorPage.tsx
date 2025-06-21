@@ -11,7 +11,7 @@ import ru from '../img/flag.svg';
 import en from '../img/en.svg';
 
 const AuthorPage: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { t,  } = useTranslation();
   const [scrollY, setScrollY] = useState(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState({});
@@ -89,19 +89,11 @@ const AuthorPage: React.FC = () => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
-    setIsLanguageDropdownOpen(false);
-  };
+
 
   const toggleLanguageDropdown = () => setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
 
-  const languages = [
-    { code: 'ru', name: 'Русский', flag: '🇷🇺', flagImage: ru },
-    { code: 'en', name: 'English', flag: '🇺🇸', flagImage: en },
-  ];
 
-  const currentLanguage = languages.find((lang) => lang.code === i18n.language) || languages[0];
 
   return (
     <div className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
@@ -144,30 +136,7 @@ const AuthorPage: React.FC = () => {
           <div className="mb-8 relative">
             <div className={`absolute ${isMobile ? 'top-4 right-4' : 'top-6 left-6'} z-20`}>
               <div className="relative">
-                <button
-                  onClick={toggleLanguageDropdown}
-                  className={`flex items-center gap-2 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 ${
-                    isMobile ? 'p-2' : 'px-4 py-2'
-                  } rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-500/25 border border-gray-600/50 ${
-                    isMobile ? 'min-w-[auto]' : 'min-w-[140px]'
-                  }`}
-                >
-                  <img
-                    src={currentLanguage.flagImage}
-                    alt={`${currentLanguage.name} flag`}
-                    className={`${isMobile ? 'w-5 h-3' : 'w-6 h-4'} rounded-sm object-cover`}
-                  />
-                  {!isMobile && (
-                    <span className="text-white font-medium text-sm flex-1 text-left">
-                      {currentLanguage.name}
-                    </span>
-                  )}
-                  {isLanguageDropdownOpen ? (
-                    <ChevronUp className={`${isMobile ? 'w-3 h-3' : 'w-4 h-4'} text-white`} />
-                  ) : (
-                    <ChevronDown className={`${isMobile ? 'w-3 h-3' : 'w-4 h-4'} text-white`} />
-                  )}
-                </button>
+            
                 <div
                   className={`absolute ${isMobile ? 'right-0' : 'left-0'} top-full mt-2 w-full ${
                     isMobile ? 'min-w-[120px]' : ''
@@ -177,21 +146,7 @@ const AuthorPage: React.FC = () => {
                       : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
                   }`}
                 >
-                  {languages.map((language) => (
-                    <button
-                      key={language.code}
-                      onClick={() => changeLanguage(language.code)}
-                      className="flex items-center gap-2 px-4 py-2 w-full text-left hover:bg-gray-700 transition-all duration-200 relative group"
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-indigo-900 via-purple-900 to-pink-900 opacity-0 group-hover:opacity-20 transition-opacity duration-300 rounded-lg" />
-                      <img
-                        src={language.flagImage}
-                        alt={`${language.name} flag`}
-                        className={`${isMobile ? 'w-5 h-3' : 'w-6 h-4'} rounded-sm object-cover z-10`}
-                      />
-                      <span className="text-white text-sm z-10">{language.name}</span>
-                    </button>
-                  ))}
+             
                 </div>
               </div>
             </div>

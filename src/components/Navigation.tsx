@@ -11,12 +11,14 @@ import {
   Award,
   User,
   HandCoins,
+  Scale,
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
 
 type PageType =
   | "home"
+
   | "donate"
   | "early-life"
   | "manchester"
@@ -24,6 +26,7 @@ type PageType =
   | "juventus-alnassr"
   | "portugal"
   | "personal-life"
+  | "Comparison"
   | "gallery"
   | "facts-records";
 
@@ -49,6 +52,7 @@ const Navigation: React.FC<NavigationProps> = ({
     { id: "personal-life", label: "", icon: Heart },
     { id: "gallery", label: "", icon: Image },
     { id: "facts-records", label: "", icon: Award },
+    { id: "Comparison", label: "", icon: Scale },
     { id: "author-of-the-site", label: "", icon: User },
     { id: "donate", label: "", icon: HandCoins },
   ];

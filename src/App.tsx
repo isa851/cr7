@@ -9,6 +9,7 @@ import AlNassrPage from "./pages/AlNassrPage";
 import JuventusPage from "./pages/JuventusPage";
 import PortugalPage from "./pages/PortugalPage";
 import PersonalLifePage from "./pages/PersonalLifePage";
+import ComparisonPage from "./pages/ComparisonPage";
 import GalleryPage from "./pages/GalleryPage";
 import FactsRecordsPage from "./pages/FactsRecordsPage";
 import AuthorPage from "./pages/AuthorPage";
@@ -23,6 +24,7 @@ type PageType =
   | "juventus"
   | "portugal"
   | "personal-life"
+  | "Comparison"
   | "gallery"
   | "facts-records"
   | "author-of-the-site";
@@ -73,6 +75,8 @@ function App() {
         return <PortugalPage />;
       case "personal-life":
         return <PersonalLifePage />;
+      case "Comparison":
+        return <ComparisonPage />;
       case "gallery":
         return <GalleryPage />;
       case "facts-records":
