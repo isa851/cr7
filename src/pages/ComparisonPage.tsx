@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
 import { Bar, Pie } from 'react-chartjs-2';
 
-// Регистрация компонентов Chart.js
+// Register ChartJS components
 ChartJS.register(ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
-// Тип для статистики игрока
+// Player stats interface
 interface PlayerStats {
   name: string;
   matches: number;
@@ -15,7 +15,7 @@ interface PlayerStats {
   ballonDOr: number;
 }
 
-// Данные для сравнений
+// Data for comparisons
 const cr7MessiStats: PlayerStats[] = [
   { name: 'Криштиану Роналду', matches: 1281, goals: 938, assists: 257, trophies: 34, ballonDOr: 5 },
   { name: 'Лионель Месси', matches: 1107, goals: 866, assists: 386, trophies: 44, ballonDOr: 8 },
@@ -23,7 +23,7 @@ const cr7MessiStats: PlayerStats[] = [
 
 const cr7PeleStats: PlayerStats[] = [
   { name: 'Криштиану Роналду', matches: 1281, goals: 938, assists: 257, trophies: 34, ballonDOr: 5 },
-  { name: 'Пеле', matches: 1363, goals: 1279, assists: 283, trophies: 26, ballonDOr: 0 }, // Золотой мяч не вручался в эпоху Пеле
+  { name: 'Пеле', matches: 1363, goals: 1279, assists: 283, trophies: 26, ballonDOr: 0 },
 ];
 
 const cr7MbappeStats: PlayerStats[] = [
@@ -31,7 +31,7 @@ const cr7MbappeStats: PlayerStats[] = [
   { name: 'Килиан Мбаппе', matches: 451, goals: 355, assists: 132, trophies: 18, ballonDOr: 0 },
 ];
 
-// Данные для графиков CR7 vs Месси
+// Chart data for CR7 vs Messi
 const cr7MessiGoalsChartData = {
   labels: ['Криштиану Роналду', 'Лионель Месси'],
   datasets: [
@@ -47,13 +47,13 @@ const cr7MessiTrophiesChartData = {
   labels: ['Криштиану Роналду', 'Лионель Месси'],
   datasets: [
     {
-      data: [938, 866], // Исправлены данные для трофеев (были неверные значения 938, 866)
+      data: [34, 44], // Corrected to reflect trophies
       backgroundColor: ['#3B82F6', '#EF4444'],
     },
   ],
 };
 
-// Данные для графиков CR7 vs Пеле
+// Chart data for CR7 vs Pele
 const cr7PeleGoalsChartData = {
   labels: ['Криштиану Роналду', 'Пеле'],
   datasets: [
@@ -75,7 +75,7 @@ const cr7PeleTrophiesChartData = {
   ],
 };
 
-// Данные для графиков CR7 vs Мбаппе
+// Chart data for CR7 vs Mbappe
 const cr7MbappeGoalsChartData = {
   labels: ['Криштиану Роналду', 'Килиан Мбаппе'],
   datasets: [
@@ -97,16 +97,17 @@ const cr7MbappeTrophiesChartData = {
   ],
 };
 
+const initialVotes = { Ronaldo: 0, Messi: 0, Pele: 0, Mbappe: 0 };
+
 const FootballLegendsComparison: React.FC = () => {
-  const [votes, setVotes] = useState<{ [key: string]: number }>({
-    Ronaldo: 0,
-    Messi: 0,
-    Pele: 0,
-    Mbappe: 0,
-  });
+  const [votes, setVotes] = useState(initialVotes);
+  const [hasVoted, setHasVoted] = useState(false);
 
   const handleVote = (player: string) => {
-    setVotes((prev) => ({ ...prev, [player]: prev[player] + 1 }));
+    if (!hasVoted) {
+      setVotes((prev) => ({ ...prev, [player]: prev[player] + 1 }));
+      setHasVoted(true);
+    }
   };
 
   const totalVotes = Object.values(votes).reduce((sum, count) => sum + count, 0);
@@ -126,7 +127,7 @@ const FootballLegendsComparison: React.FC = () => {
       <div className="max-w-6xl mx-auto p-8">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Сравнение футбольных легенд</h1>
 
-        {/* CR7 vs Месси */}
+        {/* CR7 vs Messi */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4 text-gray-700">Роналду vs Месси</h2>
           <p className="text-gray-600 mb-4">
@@ -168,7 +169,7 @@ const FootballLegendsComparison: React.FC = () => {
           <p className="text-sm text-gray-500 mt-2">Источник данных: посты на X и Transfermarkt</p>
         </section>
 
-        {/* CR7 vs Пеле */}
+        {/* CR7 vs Pele */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4 text-gray-700">Роналду vs Пеле</h2>
           <p className="text-gray-600 mb-4">
@@ -209,7 +210,7 @@ const FootballLegendsComparison: React.FC = () => {
           <p className="text-sm text-gray-500 mt-2">Источник данных: официальные записи и оценки</p>
         </section>
 
-        {/* CR7 vs Мбаппе */}
+        {/* CR7 vs Mbappe */}
         <section className="mb-12">
           <h2 className="text-2xl font-semibold mb-4 text-gray-700">Роналду vs Мбаппе</h2>
           <p className="text-gray-600 mb-4">
@@ -250,16 +251,17 @@ const FootballLegendsComparison: React.FC = () => {
           <p className="text-sm text-gray-500 mt-2">Источник данных: посты на X и Transfermarkt</p>
         </section>
 
-        {/* Раздел голосования */}
+        {/* Voting Section */}
         <section>
           <h2 className="text-2xl font-semibold mb-4 text-gray-700">Кто величайший?</h2>
-          <p className="text-gray-600 mb-4">Проголосуйте за лучшую футбольную легенду!</p>
+          <p className="text-gray-600 mb-4">Проголосуйте за лучшую футбольную легенду! (Один голос на человека)</p>
           <div className="flex flex-wrap gap-4 mb-6">
             {['Ronaldo', 'Messi', 'Pele', 'Mbappe'].map((player) => (
               <button
                 key={player}
                 onClick={() => handleVote(player)}
-                className="vote-button bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-transform"
+                disabled={hasVoted}
+                className={`vote-button px-4 py-2 rounded transition-transform ${hasVoted ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 text-white hover:bg-blue-600'}`}
               >
                 Голосовать за {player === 'Ronaldo' ? 'Роналду' : player === 'Messi' ? 'Месси' : player === 'Pele' ? 'Пеле' : 'Мбаппе'}
               </button>
@@ -271,6 +273,7 @@ const FootballLegendsComparison: React.FC = () => {
               <p className="text-center text-gray-600 mt-2">Всего голосов: {totalVotes}</p>
             </div>
           )}
+          {hasVoted && <p className="text-center text-gray-500 mt-2">Спасибо за ваш голос! Вы можете видеть текущие результаты.</p>}
         </section>
       </div>
 
@@ -283,7 +286,7 @@ const FootballLegendsComparison: React.FC = () => {
         .vote-button {
           transition: transform 0.2s;
         }
-        .vote-button:hover {
+        .vote-button:hover:not(:disabled) {
           transform: scale(1.05);
         }
       `}</style>
