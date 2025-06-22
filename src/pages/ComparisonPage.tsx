@@ -29,8 +29,6 @@ const cr7MbappeStats: PlayerStats[] = [
   { name: 'Килиан Мбаппе', matches: 451, goals: 355, assists: 132, trophies: 18, ballonDOr: 0 },
 ];
 
-const voteOptions = ['Ronaldo', 'Messi', 'Pele', 'Mbappe'];
-
 const getChartData = (labels: string[], data: number[], colors: string[]) => ({
   labels,
   datasets: [
@@ -50,12 +48,12 @@ const FootballLegendsComparison: React.FC = () => {
   });
 
   useEffect(() => {
-    axios.get('http://localhost:3001/').then((res) => setVotes(res.data));
+    axios.get('http://localhost:3001/votes').then((res) => setVotes(res.data));
   }, []);
 
   const handleVote = (player: string) => {
-    axios.post('http://localhost:3001/', { player }).then(() => {
-      axios.get('http://localhost:3001/').then((res) => setVotes(res.data));
+    axios.post('http://localhost:3001/vote', { player }).then(() => {
+      axios.get('http://localhost:3001/votes').then((res) => setVotes(res.data));
     });
   };
 
@@ -67,17 +65,81 @@ const FootballLegendsComparison: React.FC = () => {
     ['#3B82F6', '#EF4444', '#10B981', '#F59E0B']
   );
 
+  const charts = [
+    {
+      title: 'Роналду vs Месси',
+      stats: cr7MessiStats,
+      goals: [938, 866],
+      trophies: [34, 44],
+      labels: ['Криштиану Роналду', 'Лионель Месси'],
+      colors: ['#3B82F6', '#EF4444'],
+    },
+    {
+      title: 'Роналду vs Пеле',
+      stats: cr7PeleStats,
+      goals: [938, 1279],
+      trophies: [34, 26],
+      labels: ['Криштиану Роналду', 'Пеле'],
+      colors: ['#3B82F6', '#10B981'],
+    },
+    {
+      title: 'Роналду vs Мбаппе',
+      stats: cr7MbappeStats,
+      goals: [938, 355],
+      trophies: [34, 18],
+      labels: ['Криштиану Роналду', 'Килиан Мбаппе'],
+      colors: ['#3B82F6', '#F59E0B'],
+    },
+  ];
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <div className="max-w-6xl mx-auto p-8">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Сравнение футбольных легенд</h1>
 
-        {/* Раздел голосования */}
-        <section className="mb-12">
+        {charts.map(({ title, stats, goals, trophies, labels, colors }) => (
+          <section className="mb-12" key={title}>
+            <h2 className="text-2xl font-semibold mb-4 text-gray-700">{title}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="chart-container">
+                <Bar data={getChartData(labels, goals, colors)} options={{ responsive: true, plugins: { title: { display: true, text: 'Сравнение голов' } } }} />
+              </div>
+              <div className="chart-container">
+                <Pie data={getChartData(labels, trophies, colors)} options={{ responsive: true, plugins: { title: { display: true, text: 'Сравнение трофеев' } } }} />
+              </div>
+            </div>
+            <table className="w-full text-left border-collapse mt-4">
+              <thead>
+                <tr className="bg-gray-200">
+                  <th className="p-2">Игрок</th>
+                  <th className="p-2">Матчи</th>
+                  <th className="p-2">Голы</th>
+                  <th className="p-2">Передачи</th>
+                  <th className="p-2">Трофеи</th>
+                  <th className="p-2">Золотой мяч</th>
+                </tr>
+              </thead>
+              <tbody>
+                {stats.map((player) => (
+                  <tr key={player.name}>
+                    <td className="p-2">{player.name}</td>
+                    <td className="p-2">{player.matches}</td>
+                    <td className="p-2">{player.goals}</td>
+                    <td className="p-2">{player.assists}</td>
+                    <td className="p-2">{player.trophies}</td>
+                    <td className="p-2">{player.ballonDOr}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+        ))}
+
+        <section>
           <h2 className="text-2xl font-semibold mb-4 text-gray-700">Кто величайший?</h2>
           <p className="text-gray-600 mb-4">Проголосуйте за лучшую футбольную легенду!</p>
           <div className="flex flex-wrap gap-4 mb-6">
-            {voteOptions.map((player) => (
+            {['Ronaldo', 'Messi', 'Pele', 'Mbappe'].map((player) => (
               <button
                 key={player}
                 onClick={() => handleVote(player)}
@@ -94,9 +156,6 @@ const FootballLegendsComparison: React.FC = () => {
             </div>
           )}
         </section>
-
-        {/* Здесь можешь вставить блоки сравнения (CR7 vs Messi, Pele, Mbappe) как у тебя уже были */}
-
       </div>
 
       <style jsx>{`
