@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js';
-import { Bar, Pie } from 'react-chartjs-2';
+import React, { useState, useEffect } from 'react';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
+import { Pie } from 'react-chartjs-2';
 
 // Register ChartJS components
-ChartJS.register(ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 // Player stats interface
 interface PlayerStats {
@@ -15,98 +15,38 @@ interface PlayerStats {
   ballonDOr: number;
 }
 
-// Data for comparisons
-const cr7MessiStats: PlayerStats[] = [
-  { name: 'Криштиану Роналду', matches: 1281, goals: 938, assists: 257, trophies: 34, ballonDOr: 5 },
-  { name: 'Лионель Месси', matches: 1107, goals: 866, assists: 386, trophies: 44, ballonDOr: 8 },
-];
-
-const cr7PeleStats: PlayerStats[] = [
-  { name: 'Криштиану Роналду', matches: 1281, goals: 938, assists: 257, trophies: 34, ballonDOr: 5 },
-  { name: 'Пеле', matches: 1363, goals: 1279, assists: 283, trophies: 26, ballonDOr: 0 },
-];
-
-const cr7MbappeStats: PlayerStats[] = [
-  { name: 'Криштиану Роналду', matches: 1281, goals: 938, assists: 257, trophies: 34, ballonDOr: 5 },
-  { name: 'Килиан Мбаппе', matches: 451, goals: 355, assists: 132, trophies: 18, ballonDOr: 0 },
-];
-
-// Chart data for CR7 vs Messi
-const cr7MessiGoalsChartData = {
-  labels: ['Криштиану Роналду', 'Лионель Месси'],
-  datasets: [
-    {
-      label: 'Голы',
-      data: [938, 866],
-      backgroundColor: ['#3B82F6', '#EF4444'],
-    },
-  ],
-};
-
-const cr7MessiTrophiesChartData = {
-  labels: ['Криштиану Роналду', 'Лионель Месси'],
-  datasets: [
-    {
-      data: [34, 44], // Corrected to reflect trophies
-      backgroundColor: ['#3B82F6', '#EF4444'],
-    },
-  ],
-};
-
-// Chart data for CR7 vs Pele
-const cr7PeleGoalsChartData = {
-  labels: ['Криштиану Роналду', 'Пеле'],
-  datasets: [
-    {
-      label: 'Голы',
-      data: [938, 1279],
-      backgroundColor: ['#3B82F6', '#10B981'],
-    },
-  ],
-};
-
-const cr7PeleTrophiesChartData = {
-  labels: ['Криштиану Роналду', 'Пеле'],
-  datasets: [
-    {
-      data: [34, 26],
-      backgroundColor: ['#3B82F6', '#10B981'],
-    },
-  ],
-};
-
-// Chart data for CR7 vs Mbappe
-const cr7MbappeGoalsChartData = {
-  labels: ['Криштиану Роналду', 'Килиан Мбаппе'],
-  datasets: [
-    {
-      label: 'Голы',
-      data: [938, 355],
-      backgroundColor: ['#3B82F6', '#F59E0B'],
-    },
-  ],
-};
-
-const cr7MbappeTrophiesChartData = {
-  labels: ['Криштиану Роналду', 'Килиан Мбаппе'],
-  datasets: [
-    {
-      data: [34, 18],
-      backgroundColor: ['#3B82F6', '#F59E0B'],
-    },
-  ],
-};
-
-const initialVotes = { Ronaldo: 0, Messi: 0, Pele: 0, Mbappe: 0 };
+// Initial vote data (to be replaced with backend data)
+const initialVotes = { Ronaldo: 150, Messi: 200, Pele: 100, Mbappe: 50 };
 
 const FootballLegendsComparison: React.FC = () => {
   const [votes, setVotes] = useState(initialVotes);
   const [hasVoted, setHasVoted] = useState(false);
 
+  // Fetch votes from backend on component mount
+  useEffect(() => {
+    // Simulated fetch from backend (replace with real API call)
+    const fetchVotes = async () => {
+      // Example: const response = await fetch('https://your-api.com/votes');
+      // const data = await response.json();
+      // setVotes(data);
+    };
+    fetchVotes();
+  }, []);
+
+  // Handle vote submission and update backend
   const handleVote = (player: string) => {
     if (!hasVoted) {
-      setVotes((prev) => ({ ...prev, [player]: prev[player] + 1 }));
+      // Simulated vote update (replace with real API call)
+      const newVotes = { ...votes, [player]: votes[player] + 1 };
+      setVotes(newVotes);
       setHasVoted(true);
+
+      // Send vote to backend (e.g., POST request)
+      // Example: fetch('https://your-api.com/vote', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ player }),
+      // });
     }
   };
 
@@ -126,130 +66,6 @@ const FootballLegendsComparison: React.FC = () => {
     <div className="bg-gray-100 min-h-screen">
       <div className="max-w-6xl mx-auto p-8">
         <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">Сравнение футбольных легенд</h1>
-
-        {/* CR7 vs Messi */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Роналду vs Месси</h2>
-          <p className="text-gray-600 mb-4">
-            Легендарное соперничество между Криштиану Роналду и Лионелем Месси, двумя величайшими футболистами всех времён.
-            Ниже представлено сравнение их карьерной статистики по состоянию на 21 июня 2025 года.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="chart-container">
-              <Bar data={cr7MessiGoalsChartData} options={{ responsive: true, plugins: { title: { display: true, text: 'Сравнение голов' } } }} />
-            </div>
-            <div className="chart-container">
-              <Pie data={cr7MessiTrophiesChartData} options={{ responsive: true, plugins: { title: { display: true, text: 'Сравнение трофеев' } } }} />
-            </div>
-          </div>
-          <table className="w-full text-left border-collapse mt-4">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="p-2">Игрок</th>
-                <th className="p-2">Матчи</th>
-                <th className="p-2">Голы</th>
-                <th className="p-2">Передачи</th>
-                <th className="p-2">Трофеи</th>
-                <th className="p-2">Золотой мяч</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cr7MessiStats.map((player) => (
-                <tr key={player.name}>
-                  <td className="p-2">{player.name}</td>
-                  <td className="p-2">{player.matches}</td>
-                  <td className="p-2">{player.goals}</td>
-                  <td className="p-2">{player.assists}</td>
-                  <td className="p-2">{player.trophies}</td>
-                  <td className="p-2">{player.ballonDOr}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p className="text-sm text-gray-500 mt-2">Источник данных: посты на X и Transfermarkt</p>
-        </section>
-
-        {/* CR7 vs Pele */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Роналду vs Пеле</h2>
-          <p className="text-gray-600 mb-4">
-            Сравнение Криштиану Роналду с Пеле, бразильской иконой, считающейся одним из лучших в истории. Статистика отражает их эпохи.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="chart-container">
-              <Bar data={cr7PeleGoalsChartData} options={{ responsive: true, plugins: { title: { display: true, text: 'Сравнение голов' } } }} />
-            </div>
-            <div className="chart-container">
-              <Pie data={cr7PeleTrophiesChartData} options={{ responsive: true, plugins: { title: { display: true, text: 'Сравнение трофеев' } } }} />
-            </div>
-          </div>
-          <table className="w-full text-left border-collapse mt-4">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="p-2">Игрок</th>
-                <th className="p-2">Матчи</th>
-                <th className="p-2">Голы</th>
-                <th className="p-2">Передачи</th>
-                <th className="p-2">Трофеи</th>
-                <th className="p-2">Золотой мяч</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cr7PeleStats.map((player) => (
-                <tr key={player.name}>
-                  <td className="p-2">{player.name}</td>
-                  <td className="p-2">{player.matches}</td>
-                  <td className="p-2">{player.goals}</td>
-                  <td className="p-2">{player.assists}</td>
-                  <td className="p-2">{player.trophies}</td>
-                  <td className="p-2">{player.ballonDOr}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p className="text-sm text-gray-500 mt-2">Источник данных: официальные записи и оценки</p>
-        </section>
-
-        {/* CR7 vs Mbappe */}
-        <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-700">Роналду vs Мбаппе</h2>
-          <p className="text-gray-600 mb-4">
-            Криштиану Роналду против Килиана Мбаппе, молодой звезды, готовой доминировать в будущем футбола. Поколенческое сравнение.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="chart-container">
-              <Bar data={cr7MbappeGoalsChartData} options={{ responsive: true, plugins: { title: { display: true, text: 'Сравнение голов' } } }} />
-            </div>
-            <div className="chart-container">
-              <Pie data={cr7MbappeTrophiesChartData} options={{ responsive: true, plugins: { title: { display: true, text: 'Сравнение трофеев' } } }} />
-            </div>
-          </div>
-          <table className="w-full text-left border-collapse mt-4">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="p-2">Игрок</th>
-                <th className="p-2">Матчи</th>
-                <th className="p-2">Голы</th>
-                <th className="p-2">Передачи</th>
-                <th className="p-2">Трофеи</th>
-                <th className="p-2">Золотой мяч</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cr7MbappeStats.map((player) => (
-                <tr key={player.name}>
-                  <td className="p-2">{player.name}</td>
-                  <td className="p-2">{player.matches}</td>
-                  <td className="p-2">{player.goals}</td>
-                  <td className="p-2">{player.assists}</td>
-                  <td className="p-2">{player.trophies}</td>
-                  <td className="p-2">{player.ballonDOr}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <p className="text-sm text-gray-500 mt-2">Источник данных: посты на X и Transfermarkt</p>
-        </section>
 
         {/* Voting Section */}
         <section>
