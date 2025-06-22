@@ -146,7 +146,7 @@ const FootballLegendsComparison: React.FC = () => {
       title: "Роналду vs Месси",
       stats: cr7MessiStats,
       goals: [938, 866],
-      trophies: [34, 44],
+      trophies: [938, 866],
       labels: ["Криштиану Роналду", "Лионель Месси"],
       colors: ["#3B82F6", "#EF4444"],
     },
