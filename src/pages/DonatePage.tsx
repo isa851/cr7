@@ -38,7 +38,7 @@ const DonatePage: React.FC = () => {
 
       <section className="py-12 px-4 max-w-4xl mx-auto">
         <h2 className="text-2xl font-semibold mb-4 text-gray-800 text-center">
-          Наша цель сбора для нового проекта: 200,000 сомов
+          Наша цель сбора для нового проекта: 199,999 сомов
         </h2>
         <div className="w-full bg-gray-200 rounded-full h-6">
           <div
