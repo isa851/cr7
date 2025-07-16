@@ -9,6 +9,7 @@ import { CgVercel } from 'react-icons/cg';
 import my from '../img/photo_2025-06-10_16-34-12.jpg';
 import ru from '../img/flag.svg';
 import en from '../img/en.svg';
+import { AiFillProject } from "react-icons/ai";
 
 const AuthorPage: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -258,6 +259,15 @@ const AuthorPage: React.FC = () => {
             >
               <CgVercel className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
               {t('contact.vercel')}
+            </a>
+            <a
+              href="https://oshoblkitepkana.gov.kg/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-8 py-4 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-gray-500/25"
+            >
+              <AiFillProject className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+              {t("contact.commercial_projects")}
             </a>
           </div>
         </div>
