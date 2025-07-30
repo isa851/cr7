@@ -10,7 +10,6 @@ import {
   Image,
   Award,
   User,
-  HandCoins,
   Scale,
 } from "lucide-react";
 
@@ -54,7 +53,6 @@ const Navigation: React.FC<NavigationProps> = ({
     { id: "facts-records", label: "", icon: Award },
     { id: "Comparison", label: "", icon: Scale },
     { id: "author-of-the-site", label: "", icon: User },
-    { id: "donate", label: "", icon: HandCoins },
   ];
   
 
