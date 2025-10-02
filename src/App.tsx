@@ -12,7 +12,6 @@ import PersonalLifePage from "./pages/PersonalLifePage";
 import ComparisonPage from "./pages/ComparisonPage";
 import GalleryPage from "./pages/GalleryPage";
 import FactsRecordsPage from "./pages/FactsRecordsPage";
-import AuthorPage from "./pages/AuthorPage";
 
 type PageType =
   | "home"
@@ -27,7 +26,6 @@ type PageType =
   | "Comparison"
   | "gallery"
   | "facts-records"
-  | "author-of-the-site";
 
 function App() {
   const [currentPage, setCurrentPage] = useState<PageType>("home");

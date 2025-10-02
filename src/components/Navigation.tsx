@@ -9,7 +9,6 @@ import {
   Heart,
   Image,
   Award,
-  User,
   Scale,
 } from "lucide-react";
 
@@ -17,7 +16,6 @@ import { Link } from "react-router-dom";
 
 type PageType =
   | "home"
-
   | "donate"
   | "early-life"
   | "manchester"
@@ -27,7 +25,6 @@ type PageType =
   | "personal-life"
   | "Comparison"
   | "gallery"
-  | "facts-records";
 
 interface NavigationProps {
   currentPage: PageType;
@@ -52,7 +49,6 @@ const Navigation: React.FC<NavigationProps> = ({
     { id: "gallery", label: "", icon: Image },
     { id: "facts-records", label: "", icon: Award },
     { id: "Comparison", label: "", icon: Scale },
-    { id: "author-of-the-site", label: "", icon: User },
   ];
   
 
