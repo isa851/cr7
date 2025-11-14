@@ -10,10 +10,10 @@ const ManchesterPage = () => {
   ];
 
   const stats = [
-    { label: 'Матчи', value: '292' },
-    { label: 'Голы', value: '118' },
-    { label: 'Передачи', value: '69' },
-    { label: 'Трофеи', value: '9' },
+    { label: 'Матчи', value: '346' },
+    { label: 'Голы', value: '145' },
+    { label: 'Передачи', value: '57' },
+    { label: 'Трофеи', value: '10' },
   ];
 
   return (

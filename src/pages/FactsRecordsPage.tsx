@@ -6,7 +6,7 @@ const FactsRecordsPage = () => {
     {
       icon: Target,
       title: 'Голы в карьере',
-      value: '900+',
+      value: '950+',
       description: 'Официальные матчи за клуб и сборную',
       color: 'text-red-600'
     },
@@ -34,7 +34,7 @@ const FactsRecordsPage = () => {
   ];
 
   const clubRecords = [
-    { club: 'Манчестер Юнайтед', goals: 118, matches: 292, years: '2003-2009' },
+    { club: 'Манчестер Юнайтед', goals: 145, matches: 346, years: '2003-2009' },
     { club: 'Реал Мадрид', goals: 451, matches: 438, years: '2009-2018' },
     { club: 'Ювентус', goals: 101, matches: 134, years: '2018-2021' },
     { club: 'Аль-Наср', goals: '40+', matches: '50+', years: '2023-...' }
@@ -72,7 +72,7 @@ const FactsRecordsPage = () => {
               Невероятные достижения легенды футбола
             </p>
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto">
-              <div className="text-4xl font-bold text-yellow-200 mb-2">900+</div>
+              <div className="text-4xl font-bold text-yellow-200 mb-2">950+</div>
               <div className="text-lg">голов в официальных матчах</div>
             </div>
           </div>
@@ -223,7 +223,7 @@ const FactsRecordsPage = () => {
                   <span className="text-yellow-400">2021 (36 лет)</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>900+ голов:</span>
+                  <span>950+ голов:</span>
                   <span className="text-yellow-400">2025 (40 лет)</span>
                 </div>
               </div>
